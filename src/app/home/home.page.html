@@ -1,14 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+    <div class="cabecera">
+        <img src="/assets/images/escudo.png" alt="">
+        <img src="/assets/images/gobciudad.png" alt=""> 
+        <img src="/assets/images/unidoscrecemos.png" alt="">
+    </div>
+    <div class="titulo">
+      <div><span>ALARMA</span><span>COMUNITARIA</span></div>
+    </div>
+  <div class="config">
+      <ion-buttons>
+          <ion-button class="btnmenu" (click)="abreConfig()">
+            <ion-icon name="menu"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+  <ion-input type="number" name="telefono" value="{{telefono}}" [(ngModel)]="telefono" class="inputTelf" *ngIf="bandera" placeholder="pulse aqui" autofocus></ion-input>
+  <ion-input value="{{telefono}}" class="telfmemoria" readonly="true" placeholder="&#8592; Aprete el botón" *ngIf="!bandera"></ion-input>
+
+  <ion-button expand="full" (click)="guardatelf()" color="danger-shade" *ngIf="bandera">Guardar Cambios</ion-button> 
+</div> 
+ 
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div class="contenido">
+  <div class="fila1">
+    <div  (click)="alarma()" ><img src="../assets/images/panico.png" alt="" [class]="clasealarma"></div>
+    <div  (click)="emergencia()" ><img src="../assets/images/emergencia.png" alt="" [class]="claseemergencia"></div>
   </div>
+  <div class="fila2">
+      <div (click)="fuego()" ><img src="../assets/images/fuego.png" alt="" [class]="clasefuego"></div>
+      <div  (click)="apagar()" ><img src="../assets/images/apagar.png" alt="" [class]="claseapagar"></div>
+    </div>
+  </div>
+  
 </ion-content>
+<ion-footer>
+    <div class="megafono"(click)="megafono()"><img src="../assets/images/megafono.png" alt=""></div>
+</ion-footer>
